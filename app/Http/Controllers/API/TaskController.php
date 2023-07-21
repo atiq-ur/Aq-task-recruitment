@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Task1FormRequest;
 use App\Http\Requests\Task2FormRequest;
 use App\Models\Task1;
 use App\Models\Task2;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class TaskController extends BaseController
 {
@@ -54,7 +52,7 @@ class TaskController extends BaseController
                 ]);
             }
 
-            return $this->sendResponse([], 'Data saved successfully.');
+            return $this->sendResponse([], 'Data saved successfully.', 201);
         }catch (\Exception $e) {
             return $this->sendError($e->getMessage());
         }
@@ -128,6 +126,6 @@ class TaskController extends BaseController
             return $this->sendError($e->getMessage());
         }
 
-        return $this->sendResponse([], 'Data saved successfully.');
+        return $this->sendResponse([], 'Data saved successfully.', 201);
     }
 }
